@@ -12,4 +12,4 @@ Pour vérifier l'état du projet à un moment ultérieur, cliquez sur [History](
 N/A
 
 ### Cours 2
-N/A
+Projet Laravel vierge

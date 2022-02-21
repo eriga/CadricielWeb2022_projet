@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "titre": "Première publication",
+        "texte": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nibh nisl condimentum id venenatis. Lorem sed risus ultricies tristique nulla aliquet.",
+        "auteur": "Eric Gagné",
+        "categorie": "divers"
+    },
+    {
+        "id": 2,
+        "titre": "Deuxième publication",
+        "texte": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nibh nisl condimentum id venenatis. Lorem sed risus ultricies tristique nulla aliquet.",
+        "auteur": "Eric Gagné",
+        "categorie": "travail"
+    },
+    {
+        "id": 3,
+        "titre": "Troisième publication",
+        "texte": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nibh nisl condimentum id venenatis. Lorem sed risus ultricies tristique nulla aliquet.",
+        "auteur": "Salomé Corbo",
+        "categorie": "divers"
+    }
+]

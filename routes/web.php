@@ -19,3 +19,4 @@ Route::get('/', [PostController::class, 'index']);
 Route::get('/posts/{id}', [PostController::class, 'show']);
 
 Route::get('/auteur/{nom}', [PostController::class, 'parAuteur']);
+Route::get('/categorie/{nom}', [PostController::class, 'parCategorie']);

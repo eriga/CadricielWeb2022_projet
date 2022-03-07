@@ -3,37 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
-    protected $posts = [];
 
-    public function __construct(){
-        $this->posts = file_get_contents(resource_path('posts.json'));
-        $this->posts = json_decode($this->posts);
-    }
-
+    /**
+     * Méthode pour la route principale
+     * Retourne tous les posts
+     */
     public function index() {
+        $posts = DB::select('SELECT * FROM posts');
+
         return view('index', [
-            'posts' => $this->posts
+            'posts' => $posts
         ]);
     }
 
+    /**
+     * Méthode pour la route /posts/{id}
+     * Retourne le post correspondant à l'id reçu
+     */
     public function show($id) {
-        $resultat = null;
-        foreach($this->posts as $post){
-            if($post->id == $id) {
-                $resultat = $post;
-            }
-        }
 
-        // if($resultat == null) {
-        //     abort(404);
-        // } else {
-        //     return view('show', [
-        //         "post" => $resultat,
-        //     ]);
-        // }
+        $resultat = DB::select('SELECT * FROM posts WHERE id = ?', [$id]);
 
         return $resultat == null ?
                     abort(404) :
@@ -42,6 +35,10 @@ class PostController extends Controller
                     ]);
     }
 
+    /**
+     * Méthode pour la route /auteur/{nom}
+     * Retourne tous les posts d'un auteur spécifique
+     */
     public function parAuteur($nom) {
         $resultat = [];
         foreach ($this->posts as $post) {
@@ -55,6 +52,10 @@ class PostController extends Controller
         ]);
     }
 
+    /**
+     * Méthode pour la route /categorie/{nom}
+     * Retourne tous les posts d'une catégorie spécifique
+     */
     public function parCategorie($nom)
     {
         $resultat = [];

@@ -55,8 +55,8 @@
             <div class="row">
                 <div class="mb-3 text-center">
                     <h6 class="text-center text-color">
-                        {{ $post->auteur }} |
-                        {{ $post->categorie }}|
+                        {{ $post[0]->auteur }} |
+                        {{ $post[0]->categorie }}|
                         Date |
                         Popularité</h6>
                     <img src="https://via.placeholder.com/600x400" class="" alt="" width="600px" height="400px">
@@ -94,9 +94,9 @@
 
 
                     <div>
-                        <h1 class="text-primaire fs-1">{{ $post->titre }}</h1>
+                        <h1 class="text-primaire fs-1">{{ $post[0]->titre }}</h1>
                         <section class="w-75 text-start fs-5 m-auto text-color">
-                            {{ $post->texte }}
+                            {{ $post[0]->texte }}
                         </section>
                     </div>
                 </div>

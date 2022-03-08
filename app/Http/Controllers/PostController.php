@@ -13,7 +13,8 @@ class PostController extends Controller
      * Retourne tous les posts
      */
     public function index() {
-        $posts = DB::select('SELECT * FROM posts');
+        // $posts = DB::select('SELECT * FROM posts');
+        $posts = DB::table('posts')->get();
 
         return view('index', [
             'posts' => $posts
@@ -26,7 +27,10 @@ class PostController extends Controller
      */
     public function show($id) {
 
-        $resultat = DB::select('SELECT * FROM posts WHERE id = ?', [$id]);
+        // $resultat = DB::select('SELECT * FROM posts WHERE id = ?', [$id]);
+        $resultat = DB::table('posts')
+                        ->where('id', '=', $id)
+                        ->get();
 
         return $resultat == null ?
                     abort(404) :
@@ -40,12 +44,10 @@ class PostController extends Controller
      * Retourne tous les posts d'un auteur spécifique
      */
     public function parAuteur($nom) {
-        $resultat = [];
-        foreach ($this->posts as $post) {
-            if ($post->auteur == $nom) {
-                $resultat[] = $post;
-            }
-        }
+        // $resultat = DB::select("SELECT * FROM posts WHERE auteur = ?", [$nom]);
+        $resultat = DB::table('posts')
+                    ->where('auteur', '=', $nom)
+                    ->get();
 
         return view('index', [
             "posts" => $resultat,
@@ -58,12 +60,10 @@ class PostController extends Controller
      */
     public function parCategorie($nom)
     {
-        $resultat = [];
-        foreach ($this->posts as $post) {
-            if ($post->categorie == $nom) {
-                $resultat[] = $post;
-            }
-        }
+        // $resultat = DB::select("SELECT * FROM posts WHERE categorie = ?", [$nom]);
+        $resultat = DB::table('posts')
+            ->where('categorie', '=', $nom)
+            ->get();
 
         return view('index', [
             "posts" => $resultat,

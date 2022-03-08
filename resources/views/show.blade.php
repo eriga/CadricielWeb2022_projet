@@ -23,7 +23,7 @@
             </div>
 
             <div class="d-flex align-items-center justify-content-between right-side">
-                <div class="px-3"><a class="text-decoration-none" href="index.html">Accueil</a></div>
+                <div class="px-3"><a class="text-decoration-none" href="/">Accueil</a></div>
                 <div class="px-3">
                     <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                         <input type="search" class="form-control" placeholder="Rechercher..." aria-label="Search">

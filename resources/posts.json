@@ -19,5 +19,54 @@
         "texte": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nibh nisl condimentum id venenatis. Lorem sed risus ultricies tristique nulla aliquet.",
         "auteur": "Salomé Corbo",
         "categorie": "divers"
+    },
+    {
+        "id": 4,
+        "titre": "Quatrième publication",
+        "texte": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nibh nisl condimentum id venenatis. Lorem sed risus ultricies tristique nulla aliquet.",
+        "auteur": "La Poune",
+        "categorie": "finance"
+    },
+    {
+        "id": 5,
+        "titre": "Cinquième publication",
+        "texte": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nibh nisl condimentum id venenatis. Lorem sed risus ultricies tristique nulla aliquet.",
+        "auteur": "Jonathan Drouin",
+        "categorie": "divers"
+    },
+    {
+        "id": 6,
+        "titre": "Sixième publication",
+        "texte": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nibh nisl condimentum id venenatis. Lorem sed risus ultricies tristique nulla aliquet.",
+        "auteur": "Salomé Corbo",
+        "categorie": "arts et spectacles"
+    },
+    {
+        "id": 7,
+        "titre": "Septième publication",
+        "texte": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nibh nisl condimentum id venenatis. Lorem sed risus ultricies tristique nulla aliquet.",
+        "auteur": "Bob Marley",
+        "categorie": "travail"
+    },
+    {
+        "id": 8,
+        "titre": "Huitième publication",
+        "texte": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nibh nisl condimentum id venenatis. Lorem sed risus ultricies tristique nulla aliquet.",
+        "auteur": "Edith Butler",
+        "categorie": "musique"
+    },
+    {
+        "id": 9,
+        "titre": "Neuvième publication",
+        "texte": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nibh nisl condimentum id venenatis. Lorem sed risus ultricies tristique nulla aliquet.",
+        "auteur": "La Poune",
+        "categorie": "personnel"
+    },
+    {
+        "id": 10,
+        "titre": "Dixième publication",
+        "texte": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nibh nisl condimentum id venenatis. Lorem sed risus ultricies tristique nulla aliquet.",
+        "auteur": "Bob Marley",
+        "categorie": "personnel"
     }
 ]

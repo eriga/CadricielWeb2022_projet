@@ -18,7 +18,7 @@
         <nav class="navbar navbar-expand-md d-flex flex-wrap justify-content-end align-items-center">
 
             <div class="d-flex align-items-center justify-content-between right-side">
-                <div class="px-3"><a class="active" href="index.html">Accueil</a></div>
+                <div class="px-3"><a class="active" href="/">Accueil</a></div>
                 <div class="px-3">
                     <form class="col-12 col-lg-auto">
                         <input type="search" class="form-control" placeholder="Rechercher..." aria-label="Search">
@@ -57,7 +57,9 @@
                                 <div class="post-body">
                                     <h6 class="text-center">
                                         10 janvier 2022 |
-                                        {{ $post->categorie }}
+                                        <a href="/categorie/{{ $post->categorie }}">
+                                            {{ $post->categorie }}
+                                        </a>
                                         | +12
                                         </h6>
                                     <h6 class="text-center">

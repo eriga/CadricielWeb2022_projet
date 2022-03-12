@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -13,11 +14,8 @@ class PostController extends Controller
      * Retourne tous les posts
      */
     public function index() {
-        // $posts = DB::select('SELECT * FROM posts');
-        $posts = DB::table('posts')->get();
-
         return view('index', [
-            'posts' => $posts
+            'posts' => Post::all()
         ]);
     }
 

@@ -13,7 +13,8 @@ class PostController extends Controller
      * Méthode pour la route principale
      * Retourne tous les posts
      */
-    public function index() {
+    public function index()
+    {
         return view('index', [
             'posts' => Post::all()
         ]);
@@ -23,29 +24,31 @@ class PostController extends Controller
      * Méthode pour la route /posts/{id}
      * Retourne le post correspondant à l'id reçu
      */
-    public function show($id) {
+    public function show($id)
+    {
 
         // $resultat = DB::select('SELECT * FROM posts WHERE id = ?', [$id]);
         $resultat = DB::table('posts')
-                        ->where('id', '=', $id)
-                        ->get();
+            ->where('id', '=', $id)
+            ->get();
 
         return $resultat == null ?
-                    abort(404) :
-                    view('show', [
-                        "post" => $resultat,
-                    ]);
+            abort(404) :
+            view('show', [
+                "post" => $resultat,
+            ]);
     }
 
     /**
      * Méthode pour la route /auteur/{nom}
      * Retourne tous les posts d'un auteur spécifique
      */
-    public function parAuteur($nom) {
+    public function parAuteur($nom)
+    {
         // $resultat = DB::select("SELECT * FROM posts WHERE auteur = ?", [$nom]);
         $resultat = DB::table('posts')
-                    ->where('auteur', '=', $nom)
-                    ->get();
+            ->where('auteur', '=', $nom)
+            ->get();
 
         return view('index', [
             "posts" => $resultat,

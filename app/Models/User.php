@@ -12,4 +12,9 @@ class User extends Model
     public function posts(){
         return $this->hasMany(Post::class);
     }
+
+    // Accesseur pour le nom complet
+    public function getNomCompletAttribute(){
+        return $this->prenom . " " . $this->nom;
+    }
 }

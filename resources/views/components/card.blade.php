@@ -8,13 +8,13 @@
             <h6 class="text-center">
                 10 janvier 2022 |
                 <a href="/categorie/{{ $post->categorie }}">
-                    {{ $post->categorie }}
+                    {{ $post->categorie->nom }}
                 </a>
-                | +12
+                | {{ $post->popularite }}
             </h6>
             <h6 class="text-center">
                 <a href="/auteur/{{ $post->auteur }}">
-                    {{ $post->auteur }}
+                    {{ $post->user->nom_complet }}
                 </a>
             </h6>
             <h5 class="">{{ $post->titre }}</h5>

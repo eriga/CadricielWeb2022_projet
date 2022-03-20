@@ -14,6 +14,12 @@ class Post extends Model
     }
 
     public function categorie(){
-        return $this->belongsTo(Categorie::class);
+        return $this->belongsTo(Categorie::class, 'category_id');
+    }
+
+    // Accesseur pour la popularité
+    public function getPopulariteAttribute()
+    {
+        return $this->likes - $this->dislikes;
     }
 }

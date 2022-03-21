@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,6 +17,13 @@ class PostController extends Controller
     public function index()
     {
         return view('index', [
+            'posts' => Post::limit(6)->get(),
+            'plus' => true
+        ]);
+    }
+
+    public function tous() {
+        return view('index', [
             'posts' => Post::all()
         ]);
     }
@@ -28,13 +36,9 @@ class PostController extends Controller
     {
 
         // $resultat = DB::select('SELECT * FROM posts WHERE id = ?', [$id]);
-        $resultat = DB::table('posts')
-            ->where('id', '=', $id)
-            ->get();
+        $resultat = Post::findOrFail($id);
 
-        return $resultat == null ?
-            abort(404) :
-            view('show', [
+        return view('show', [
                 "post" => $resultat,
             ]);
     }
@@ -43,12 +47,11 @@ class PostController extends Controller
      * Méthode pour la route /auteur/{nom}
      * Retourne tous les posts d'un auteur spécifique
      */
-    public function parAuteur($nom)
+    public function parAuteur($id)
     {
-        // $resultat = DB::select("SELECT * FROM posts WHERE auteur = ?", [$nom]);
-        $resultat = DB::table('posts')
-            ->where('auteur', '=', $nom)
-            ->get();
+        $resultat = User::findOrFail($id);
+
+        dd($resultat);
 
         return view('index', [
             "posts" => $resultat,

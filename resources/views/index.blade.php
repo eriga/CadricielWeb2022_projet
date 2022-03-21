@@ -21,9 +21,13 @@
 
             </div>
 
-            <div class="row d-flex justify-content-center my-5">
-                <button>Voir tout</button>
-            </div>
+            @isset($plus)
+                <a href="/posts/tous">
+                    <div class="row d-flex justify-content-center my-5">
+                        <button>Voir tout</button>
+                    </div>
+                </a>
+            @endisset
         </div>
     </main>
 </x-layout>

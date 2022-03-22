@@ -21,20 +21,19 @@ a.active { text-decoration: underline; text-decoration-thickness: 5px; text-unde
 .bg-secondaire { background-color: $bg_secondaire; }
 .bg-footer { background-color: $bg_footer; }
 
-html, body { min-height: 100%;}
+html, body {
+    height: 100%;
+}
 
 body {
     font-size: 16px;
     background-color: $bg_primaire;
     font-family: 'Ubuntu', sans-serif; // servi localement avec 'Ubuntu Local'
 
-    a { color: $primaire; }
+    a { color: $primaire;}
     a:focus, a:hover { color: $primaire_dark; }
 }
 
-/********
-HEADER
-********/
 header {
     .form-control {
         border-radius: $radius;
@@ -56,17 +55,11 @@ header {
     p { max-width: 500px; color: $texte_color;}
 }
 
-/********
-FOOTER
-********/
 footer {
     position: sticky;
-    top:100%;
+    top: 100%;
 }
 
-/********
-POSTS
-********/
 .post-container {
     cursor: pointer;  // pour simuler un lien cliquable
 
@@ -90,7 +83,6 @@ POSTS
             transform: scale(1.01); // valeur initiale > 1 pour éviter une transition saccadée
             transition: $transition;
             z-index: -1; // pour éviter que l'image s'agrandisse au-dessus du texte
-
             height: 250px;
             object-fit: cover;
             object-position: center;
@@ -131,11 +123,8 @@ POSTS
         }
     }
 }
-
-/********
-TÉLÉVERSEMENT
-********/
-button, label {
+// label pour inclure le bouton d'upload d'image
+button, label:not(.form) {
     background-color: $primaire;
     border: none;
     max-width: 150px !important;
@@ -147,20 +136,23 @@ button, label {
     &:hover {
         background-color: $primaire_dark;
     }
+
+    // Pour éviter que le "Catégories" du select ait un bg
+    &[for="floatingSelect"] {
+        background-color: transparent;
+    }
 }
 
-/********
-SVG
-********/
-svg { margin-left: 20px; margin-right: 20px; cursor: pointer;}
+// SVG sur posts: changer le positionnement et la couleur :hover
+svg.like, svg.dislike { margin-left: 20px; margin-right: 20px; cursor: pointer;}
     // rect pour cibler le background
 svg.like:hover rect  { fill: #54ae3e; }
 svg.like:hover path  { stroke-width:5; }
 svg.dislike:hover rect  { fill: #c84444; }
+svg.dislike:hover path  { stroke-width:5; }
 
-/********
-PUBLISH
-********/
+/** Publication **/
+
 // Modification du select categories
 // copié de boostraps
 .form-floating {
@@ -188,9 +180,7 @@ textarea {
 
 
 
-/********
-AVATAR
-********/
+/** Correction au menu avatar **/
 .dropdown-menu[data-bs-popper] {
     right: 0;
     left: unset;
@@ -202,3 +192,35 @@ AVATAR
      transition: $transition;
      &:hover, &:focus {color: $primaire;}
  }
+
+ .aucune-publication {
+     display: flex;
+     flex-direction: column;
+     text-align: center;
+     color: $texte_color;
+     height: 100%;
+
+     &>div {
+        flex: auto;
+     }
+ }
+
+ /**
+    Message flashé
+ **/
+.flash {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: $primaire;
+    color: white;
+    padding: 5px;
+    box-shadow: 2px 2px 5px $bg_secondaire;
+    animation: fadeout ease 5s forwards;
+}
+
+@keyframes fadeout {
+    0%  {opacity: 1;}
+    90% {opacity: 1;}
+    100% {opacity: 0;}
+}

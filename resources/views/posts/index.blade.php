@@ -16,7 +16,10 @@
                 @forelse($posts as $post)
                     <x-card :post="$post"/>
                 @empty
-                    <h3>Aucune publication trouvée</h3>
+                    <h3 class="text-center text-white">Aucune publication trouvée</h3>
+                    <div class="row mb-5">
+                    <a class="d-flex justify-content-center" href="/"><button>Retour</button></a>
+                    </div>
                 @endforelse
 
             </div>
@@ -28,6 +31,24 @@
                     </div>
                 </a>
             @endisset
+
+            {{-- MESSAGES DE CONFIRMATION (FLASH) --}}
+            @if(session('success') != null)
+                <div class="flash fs-6 rounded-3">
+                    {{ session('success') }}
+                </div>
+            @endisset
+            @if(session('update') != null)
+                <div class="flash fs-6 rounded-3">
+                    {{ session('update') }}
+                </div>
+            @endisset
+            @if(session('destroy') != null)
+                <div class="flash fs-6 rounded-3">
+                    {{ session('destroy') }}
+                </div>
+            @endisset
+
         </div>
     </main>
 </x-layout>

@@ -13,8 +13,8 @@
             </a>
         </div>
         <div class="px-3">
-            <form class="col-12 col-lg-auto">
-                <input type="search" class="form-control" placeholder="Rechercher..." aria-label="Search">
+            <form class="col-12 col-lg-auto" method="get" action="/posts/chercher">
+                <input name="recherche" class="form-control" placeholder="Rechercher..." aria-label="Search">
             </form>
         </div>
         <div class="px-2">
@@ -24,7 +24,7 @@
                     <img src="https://github.com/mdo.png" alt="mdo" width="50" height="50" class="rounded-circle">
                 </a>
                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                    <li><a class="dropdown-item" href="publish.html">Publier</a></li>
+                    <li><a class="dropdown-item" href="/posts/create">Publier</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>

@@ -37,7 +37,7 @@ a.active {
 }
 
 html, body {
-  min-height: 100%;
+  height: 100%;
 }
 
 body {
@@ -54,9 +54,6 @@ body a:focus, body a:hover {
   color: #aa3f1b;
 }
 
-/********
-HEADER
-********/
 header .form-control {
   border-radius: 24px;
   border: none;
@@ -100,18 +97,12 @@ header p {
   color: #DEDEDE;
 }
 
-/********
-FOOTER
-********/
 footer {
   position: -webkit-sticky;
   position: sticky;
   top: 100%;
 }
 
-/********
-POSTS
-********/
 .post-container {
   cursor: pointer;
 }
@@ -196,10 +187,7 @@ POSTS
   color: #F86B3A;
 }
 
-/********
-TÉLÉVERSEMENT
-********/
-button, label {
+button, label:not(.form) {
   background-color: #F86B3A;
   border: none;
   max-width: 150px !important;
@@ -210,14 +198,15 @@ button, label {
   transition: all 0.2s ease;
 }
 
-button:hover, label:hover {
+button:hover, label:not(.form):hover {
   background-color: #aa3f1b;
 }
 
-/********
-SVG
-********/
-svg {
+button[for="floatingSelect"], label:not(.form)[for="floatingSelect"] {
+  background-color: transparent;
+}
+
+svg.like, svg.dislike {
   margin-left: 20px;
   margin-right: 20px;
   cursor: pointer;
@@ -235,9 +224,11 @@ svg.dislike:hover rect {
   fill: #c84444;
 }
 
-/********
-PUBLISH
-********/
+svg.dislike:hover path {
+  stroke-width: 5;
+}
+
+/** Publication **/
 .form-floating > .form-select {
   background-color: #F86B3A;
   color: white;
@@ -266,9 +257,7 @@ textarea {
   height: 500px;
 }
 
-/********
-AVATAR
-********/
+/** Correction au menu avatar **/
 .dropdown-menu[data-bs-popper] {
   right: 0;
   left: unset;
@@ -282,5 +271,64 @@ AVATAR
 
 .link-dark:hover, .link-dark:focus {
   color: #F86B3A;
+}
+
+.aucune-publication {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  color: #DEDEDE;
+  height: 100%;
+}
+
+.aucune-publication > div {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+}
+
+/**
+    Message flashé
+ **/
+.flash {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #F86B3A;
+  color: white;
+  padding: 5px;
+  -webkit-box-shadow: 2px 2px 5px #343434;
+          box-shadow: 2px 2px 5px #343434;
+  -webkit-animation: fadeout ease 5s forwards;
+          animation: fadeout ease 5s forwards;
+}
+
+@-webkit-keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */

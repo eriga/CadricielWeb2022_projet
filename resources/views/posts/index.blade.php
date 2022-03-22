@@ -4,6 +4,14 @@
         Accueil | Cadriciel Web 2022
     </x-slot>
 
+    
+    @if(session('success') != null)
+        <div class="flash fs-6 rounded-3">
+            {{ session('success') }}
+        </div>
+    @endif
+
+
     <!-- https://getbootstrap.com/docs/5.1/examples/headers/ -->
     <header class="p-3 py-4 bg-secondaire">
         <x-header.nav :active="true"/>

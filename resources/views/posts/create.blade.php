@@ -10,7 +10,17 @@
 
             <h1 class="text-center text-color">Nouvelle publication</h1>
 
-            <form class="d-flex flex-column align-items-center" action="/post" method="post" enctype="multipart/form-data">
+            @if($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <form class="d-flex flex-column align-items-center" action="/posts" method="post" enctype="multipart/form-data">
                 @csrf
 
                 <div class="w-100 d-flex flex-column align-items-center">
@@ -31,12 +41,14 @@
                         <label class="form" for="floatingSelect">Catégories</label>
                     </div>
 
-                    <input class="ps-3 py-2 mt-5 mb-3" type="text" name="titre" placeholder="Votre titre..." autofocus>
+                    <input class="ps-3 py-2 mt-5 mb-3" type="text" name="titre" placeholder="Votre titre..." 
+                    value="{{ old('titre') }}" autofocus>
 
                     <textarea
                         class="ps-3 py-2 my-3"
                         name="texte"
-                        placeholder="Votre texte...">
+                        >
+                        {{ old('texte') }}
                     </textarea>
 
                     <h5 class="text-color mt-3">Associer une image à votre publication:</h5>

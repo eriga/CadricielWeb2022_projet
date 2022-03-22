@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRequest;
 use App\Models\Categorie;
 use App\Models\Post;
 use App\Models\User;
@@ -18,7 +19,7 @@ class PostController extends Controller
     public function index()
     {
         return view('posts.index', [
-            'posts' => Post::limit(6)->get(),
+            'posts' => Post::limit(6)->latest()->get(),
             'plus' => true
         ]);
     }
@@ -84,8 +85,20 @@ class PostController extends Controller
      * Méthode pour la route /posts
      * Récupère les informations du formulaire et les persiste
      */
-    public function store(Request $request){
+    public function store(PostRequest $request){
 
+        $post = new Post;
+        $post->titre = $request->titre;
+        $post->texte = $request->texte;
+        $post->category_id = $request->categorie;
+        $post->user_id = 1;
+        $post->likes = 0;
+        $post->dislikes = 0;
+
+        $post->save();
+
+
+        return redirect('/')->with('success', 'Publication ajoutée!');
     }
 
     /**

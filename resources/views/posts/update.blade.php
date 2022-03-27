@@ -44,6 +44,9 @@
                     <label for="image" class="bouton">Téléverser</label>
                     <input type="file" id="image" name="image" style="visibility: hidden;">
 
+                    {{-- L'id du post doit être reçu dans la méthode storeUpdate --}}
+                    <input type="hidden" name="id" value="{{ $post->id }}">
+
                     <p class="d-flex justify-content-center my-5">
                         <button type="submit">Publier!</button>
                     </p>

@@ -25,14 +25,20 @@ class PostRequest extends FormRequest
     {
         return [
             "titre" => 'required|min:3|max:255',
-            "texte" => 'required|min:10'
+            "texte" => 'required|min:10',
+            "categorie" => 'required|exists:categories,id'
         ];
     }
 
     public function messages(){
         return [
-            'titre.required' => 'Le titre est requis',
-            'titre.min' => 'Le titre doit avoir une longueur minimale de 3 caractères',            
+            'titre.required' => 'Le :attribute est requis',
+            'titre.min' => 'Le :attribute doit avoir une longueur minimale de :min caractères',  
+            'titre.max' => 'Le :attribute doit avoir une longueur minimale de :max caractères',  
+            'texte.required' => 'Le :attribute de la publication est obligatoire',
+            'texte.min' => 'La longueur du :attribute doit être d\'au moins 10 caractères',
+            'categorie.required' => 'La catégorie est requise',
+            'categorie.exists' => 'La catégorie sélectionnée n\'existe pas'
         ];
     }
 }

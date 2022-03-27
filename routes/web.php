@@ -12,6 +12,8 @@
 |
 */
 
+use App\Http\Controllers\EnregistrementController;
+use App\Http\Controllers\ConnexionController;
 use App\Http\Controllers\InitController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +21,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PostController::class, 'index']);
 
 Route::post('/posts', [PostController::class, 'store']);
+// Route pour traiter la modification d'un post
+Route::post('/posts/update', [PostController::class, 'storeUpdate']);
+//
 Route::get('/posts/tous', [PostController::class, 'tous']);
 Route::get('/posts/create', [PostController::class, 'create']);
 Route::get('/posts/chercher', [PostController::class, 'chercher']);
@@ -29,4 +34,15 @@ Route::get('/posts/destroy/{id}', [PostController::class, 'destroy']);
 Route::get('/auteur/{id}', [PostController::class, 'parAuteur']);
 Route::get('/categorie/{id}', [PostController::class, 'parCategorie']);
 
-Route::get('/init', [InitController::class, 'index']);
+// ENREGISTREMENT
+Route::get('/enregistrement', [EnregistrementController::class, 'create']);
+Route::post('/enregistrement', [EnregistrementController::class, 'store']);
+
+// CONNEXION
+Route::get('/connexion', [ConnexionController::class, 'create'])->name('login');
+Route::post('/connexion', [ConnexionController::class, 'store']);
+Route::get('/deconnexion', [ConnexionController::class, 'destroy'])->middleware('auth');
+Route::get('/compte', [ConnexionController::class, 'index'])->middleware('auth');
+
+// La route /init n'est plus utile
+// Route::get('/init', [InitController::class, 'index']);

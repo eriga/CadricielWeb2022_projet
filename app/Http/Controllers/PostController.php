@@ -102,6 +102,24 @@ class PostController extends Controller
     }
 
     /**
+     * Méthode pour la route /posts/update
+     * Récupère les informations du formulaire modifié et les persiste
+     */
+    public function storeUpdate(PostRequest $request)
+    {
+
+        $post = Post::findOrFail($request->id);
+        $post->titre = $request->titre;
+        $post->texte = $request->texte;
+        $post->category_id = $request->categorie;        
+
+        $post->save();
+
+
+        return redirect('/')->with('success', 'Publication modifiée!');
+    }
+
+    /**
      * Méthode pour la route /posts/update/{id}
      * Retourne la vue affichant le formulaire de la publication à modifier
      */

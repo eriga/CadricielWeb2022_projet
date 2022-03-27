@@ -21,16 +21,6 @@
                     {{ $post->user->nom_complet }}
                 </a>
             </h6>    
-            
-            {{-- BOUTONS --}}
-            <div class="text-center my-1">
-                <a href="/posts/update/{{ $post->id }}">
-                    <x-buttons.edit />
-                </a>
-                <a href="/posts/destroy/{{ $post->id }}">
-                    <x-buttons.destroy />
-                </a>
-            </div>
 
             {{-- TITRE --}}
             <h5 class="">{{ $post->titre }}</h5>                        

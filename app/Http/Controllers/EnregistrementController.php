@@ -38,4 +38,4 @@ class EnregistrementController extends Controller
 
         return redirect('/compte')->with('success', 'Enregistrement réussi!');
     }
-}
+}   

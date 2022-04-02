@@ -21,9 +21,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PostController::class, 'index'])->name('accueil');
 
 Route::post('/posts', [PostController::class, 'store']);
-// Route pour traiter la modification d'un post
-Route::post('/posts/update', [PostController::class, 'storeUpdate'])->middleware('auth');
-//
 Route::get('/posts/tous', [PostController::class, 'tous']);
 Route::get('/posts/create', [PostController::class, 'create'])->middleware('auth');
 Route::get('/posts/chercher', [PostController::class, 'chercher']);

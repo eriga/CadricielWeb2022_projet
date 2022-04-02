@@ -88,39 +88,21 @@ class PostController extends Controller
      */
     public function store(PostRequest $request){
 
-        $post = new Post;
+        $post = Post::firstOrNew(['id' => $request->id]);
         $post->titre = $request->titre;
         $post->texte = $request->texte;
         $post->category_id = $request->categorie;
-        $post->user_id = 1;
-        $post->likes = 0;
-        $post->dislikes = 0;
+        $post->user_id = auth()->user()->id;        
 
-        Storage::putFile('public/img', $request->image);
-        $post->image_path = '/storage/img/' . $request->image->hashName();
+        if(isset($request->image)){
+            $chemin = Storage::putFile('public/img', $request->image);        
+            $post->image = basename($chemin);
+        }
 
         $post->save();
 
 
         return redirect('/')->with('success', 'Publication ajoutée!');
-    }
-
-    /**
-     * Méthode pour la route /posts/update
-     * Récupère les informations du formulaire modifié et les persiste
-     */
-    public function storeUpdate(PostRequest $request)
-    {
-
-        $post = Post::findOrFail($request->id);
-        $post->titre = $request->titre;
-        $post->texte = $request->texte;
-        $post->category_id = $request->categorie;        
-
-        $post->save();
-
-
-        return redirect('/')->with('success', 'Publication modifiée!');
     }
 
     /**

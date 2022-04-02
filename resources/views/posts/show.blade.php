@@ -15,7 +15,12 @@
                         {{ $post->categorie->nom }} |
                         {{ ucfirst($post->created_at->diffForHumans()) }} |
                         {{ $post->popularite }}</h6>
-                    <img src="https://via.placeholder.com/600x400" class="" alt="" width="600px" height="400px">
+                
+                    @if($post->image == null) 
+                        <img src="https://via.placeholder.com/600x400" class="" alt="" width="600px" height="400px">
+                    @else
+                        <img src="{{ asset('storage/img/' . $post->image) }}" width="600px" height="400px">
+                    @endif
 
                     @auth
                         <div class="mt-3">

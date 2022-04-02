@@ -26,7 +26,8 @@ class PostRequest extends FormRequest
         return [
             "titre" => 'required|min:3|max:255',
             "texte" => 'required|min:10',
-            "categorie" => 'required|exists:categories,id'
+            "categorie" => 'required|exists:categories,id',
+            "image" => 'mimes:png,jpeg,jpg'
         ];
     }
 
@@ -38,7 +39,8 @@ class PostRequest extends FormRequest
             'texte.required' => 'Le :attribute de la publication est obligatoire',
             'texte.min' => 'La longueur du :attribute doit être d\'au moins 10 caractères',
             'categorie.required' => 'La catégorie est requise',
-            'categorie.exists' => 'La catégorie sélectionnée n\'existe pas'
+            'categorie.exists' => 'La catégorie sélectionnée n\'existe pas',
+            'image.mimes' => 'Le fichier doit correspondre à une des extensions suivantes: .png, .jpeg, .jpg'
         ];
     }
 }

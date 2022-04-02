@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -95,6 +96,9 @@ class PostController extends Controller
         $post->likes = 0;
         $post->dislikes = 0;
 
+        Storage::putFile('public/img', $request->image);
+        $post->image_path = '/storage/img/' . $request->image->hashName();
+
         $post->save();
 
 
@@ -158,5 +162,23 @@ class PostController extends Controller
         return view('posts.index', [
             "posts" => $posts
         ]);
+    }
+
+    /**
+     * Gérer l'ajout de likes et dislikes sur un post
+     * 
+     * @param string $type Likes ou dislikes
+     * @param int $id Id du post ciblé
+     * 
+     */
+    public function popularite($type, $id) {
+        $post = Post::findOrFail($id);
+
+        // condition   ?   action si vrai : action si faux
+        $type == 'like' ? $post->likes++ : $post->dislikes++;
+        $post->save();
+        return back();
+
+
     }
 }

@@ -10,7 +10,7 @@
 
             <h1 class="text-center text-color">Nouvelle publication</h1>
 
-            <form class="d-flex flex-column align-items-center" action="/post" method="post" enctype="multipart/form-data">
+            <form class="d-flex flex-column align-items-center" action="/posts/update" method="post" enctype="multipart/form-data">
                 @csrf
 
                 <div class="w-100 d-flex flex-column align-items-center">

@@ -21,6 +21,7 @@ class CreatePostsTable extends Migration
             $table->foreignId('category_id')->constrained();
             $table->integer('likes');
             $table->integer('dislikes');
+            $table->text('image_path')->nullable();
             $table->timestamps();
         });
     }

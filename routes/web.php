@@ -18,28 +18,29 @@ use App\Http\Controllers\InitController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [PostController::class, 'index']);
+Route::get('/', [PostController::class, 'index'])->name('accueil');
 
 Route::post('/posts', [PostController::class, 'store']);
 // Route pour traiter la modification d'un post
-Route::post('/posts/update', [PostController::class, 'storeUpdate']);
+Route::post('/posts/update', [PostController::class, 'storeUpdate'])->middleware('auth');
 //
 Route::get('/posts/tous', [PostController::class, 'tous']);
-Route::get('/posts/create', [PostController::class, 'create']);
+Route::get('/posts/create', [PostController::class, 'create'])->middleware('auth');
 Route::get('/posts/chercher', [PostController::class, 'chercher']);
+Route::get('/posts/popularite/{type}/{id}', [PostController::class, 'popularite'])->middleware('auth');
 Route::get('/posts/{id}', [PostController::class, 'show']);
-Route::get('/posts/update/{id}', [PostController::class, 'update']);
-Route::get('/posts/destroy/{id}', [PostController::class, 'destroy']);
+Route::get('/posts/update/{id}', [PostController::class, 'update'])->middleware('auth');
+Route::get('/posts/destroy/{id}', [PostController::class, 'destroy'])->middleware('auth');
 
 Route::get('/auteur/{id}', [PostController::class, 'parAuteur']);
 Route::get('/categorie/{id}', [PostController::class, 'parCategorie']);
 
 // ENREGISTREMENT
-Route::get('/enregistrement', [EnregistrementController::class, 'create']);
+Route::get('/enregistrement', [EnregistrementController::class, 'create'])->middleware('guest');
 Route::post('/enregistrement', [EnregistrementController::class, 'store']);
 
 // CONNEXION
-Route::get('/connexion', [ConnexionController::class, 'create'])->name('login');
+Route::get('/connexion', [ConnexionController::class, 'create'])->name('login')->middleware('guest');
 Route::post('/connexion', [ConnexionController::class, 'store']);
 Route::get('/deconnexion', [ConnexionController::class, 'destroy'])->middleware('auth');
 Route::get('/compte', [ConnexionController::class, 'index'])->middleware('auth');

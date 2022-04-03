@@ -6,7 +6,7 @@
     <main>
         <div class="container py-4">
             <div class="row mb-5">
-                <a class="d-flex justify-content-center" href="/"><button>Retour</button></a>
+                <a class="d-flex justify-content-center" href="{{ url('/') }}"><button>Retour</button></a>
             </div>
             <div class="row">
                 <div class="mb-3 text-center">
@@ -24,7 +24,7 @@
 
                     @auth
                         <div class="mt-3">
-                            <a href="/posts/popularite/like/{{ $post->id }}">
+                            <a href="{{ url('/posts/popularite/like/' . $post->id) }}">
                                 <svg class="like" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
                                     <g id="Circle_Button" data-name="Circle Button" transform="translate(-0.375 -0.375)">
                                         <rect id="Area" width="36" height="36" rx="18" transform="translate(0.375 0.375)" fill="#2e741d" />
@@ -41,7 +41,7 @@
                                     </g>
                                 </svg>
                             </a>
-                            <a href="/posts/popularite/dislike/{{ $post->id }}">
+                            <a href="{{ url('/posts/popularite/dislike/' . $post->id) }}">
                                 <svg class="dislike" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
                                     <g id="Circle_Button" data-name="Circle Button" transform="translate(-0.375 -0.375)">
                                         <rect id="Area" width="36" height="36" rx="18" transform="translate(0.375 0.375)" fill="#802525" />

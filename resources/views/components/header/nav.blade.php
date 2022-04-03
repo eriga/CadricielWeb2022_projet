@@ -4,12 +4,12 @@
 
     <div class="d-flex align-items-center justify-content-between right-side">
         <div class="px-3">
-            <a @if ($active) {!! 'class="active"' !!} @endif href="/">
+            <a @if ($active) {!! 'class="active"' !!} @endif href="{{ url('/') }}">
                 Accueil
             </a>
         </div>
         <div class="px-3">
-            <form class="col-12 col-lg-auto" method="get" action="/posts/chercher">
+            <form class="col-12 col-lg-auto" method="get" action="{{ url('/posts/chercher') }}">
                 <input name="recherche" class="form-control" placeholder="Rechercher..." aria-label="Search">
             </form>
         </div>
@@ -37,16 +37,16 @@
                 </a>
                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                     @auth
-                        <li><a class="dropdown-item" href="/posts/create">Publier</a></li>
-                        <li><a class="dropdown-item" href="/compte">Votre compte</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/posts/create') }}">Publier</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/compte') }}">Votre compte</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="/deconnexion">Déconnexion</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/deconnexion') }}">Déconnexion</a></li>
                     @endauth
                     @guest
-                        <li><a class="dropdown-item" href="/enregistrement">Enregistrement</a></li>
-                        <li><a class="dropdown-item" href="/connexion">Connexion</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/enregistrement') }}">Enregistrement</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/connexion') }}">Connexion</a></li>
                     @endguest
                 </ul>
             </div>

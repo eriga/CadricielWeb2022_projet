@@ -14,7 +14,6 @@
 
 use App\Http\Controllers\EnregistrementController;
 use App\Http\Controllers\ConnexionController;
-use App\Http\Controllers\InitController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -41,6 +40,3 @@ Route::get('/connexion', [ConnexionController::class, 'create'])->name('login')-
 Route::post('/connexion', [ConnexionController::class, 'store']);
 Route::get('/deconnexion', [ConnexionController::class, 'destroy'])->middleware('auth');
 Route::get('/compte', [ConnexionController::class, 'index'])->middleware('auth');
-
-// La route /init n'est plus utile
-// Route::get('/init', [InitController::class, 'index']);

@@ -26,14 +26,14 @@
                 @empty
                     <h3 class="text-center text-white">Aucune publication trouvée</h3>
                     <div class="row mb-5">
-                    <a class="d-flex justify-content-center" href="/"><button>Retour</button></a>
+                    <a class="d-flex justify-content-center" href="{{ url('/') }}"><button>Retour</button></a>
                     </div>
                 @endforelse
 
             </div>
 
             @isset($plus)
-                <a href="/posts/tous">
+                <a href="{{ url('/posts/tous') }}">
                     <div class="row d-flex justify-content-center my-5">
                         <button>Voir tout</button>
                     </div>

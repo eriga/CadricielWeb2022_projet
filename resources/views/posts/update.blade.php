@@ -5,7 +5,7 @@
     <main>
         <div class="container py-4">
             <div class="row mb-5">
-                <a class="d-flex justify-content-center" href="/"><button>Retour</button></a>
+                <a class="d-flex justify-content-center" href="{{ url('/') }}"><button>Retour</button></a>
             </div>
 
             <h1 class="text-center text-color">Modifier la publication</h1>

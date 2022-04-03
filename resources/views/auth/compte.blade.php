@@ -38,7 +38,7 @@
                 <div class="row border border-secondary align-items-center justify-content-start p-2 py-3">
                     @forelse($posts as $post)
                         <p class="col-lg-8 col-12 m-0 text-color fs-5 text-start">
-                            <a href="/posts/{{ $post->id }}">{{ $post->titre }}</a>
+                            <a href="{{ url('/posts/' . $post->id) }}">{{ $post->titre }}</a>
                         </p>
                         <p class="col-lg-1 col-4 m-0 text-secondary fs-6">
                             {{ $post->categorie->nom }}
@@ -47,12 +47,12 @@
                             {{ $post->popularite }}
                         </p>
                         <p class="col-lg-1 col-2 m-0 text-secondary fs-6">
-                            <a class="btn-sm btn-success" href="/posts/update/{{ $post->id }}">
+                            <a class="btn-sm btn-success" href="{{ url('/posts/update/' . $post->id) }}">
                                 ✎
                             </a>
                         </p>
                         <p class="col-lg-1 col-2 m-0 text-secondary fs-6">
-                            <a class="btn-sm btn-danger" href="/posts/destroy/{{ $post->id }}">
+                            <a class="btn-sm btn-danger" href="{{ url('/posts/destroy/' . $post->id) }}">
                                 ✖
                             </a>
                         </p>

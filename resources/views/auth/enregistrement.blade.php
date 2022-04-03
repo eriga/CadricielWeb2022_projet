@@ -5,8 +5,8 @@
     <main>
         <div class="container py-5">
             <h1 class="text-center text-color m-0 fs-1">Créez un compte</h1>
-            <h4 class="text-center text-color fs-5">ou <a href="/connexion">connectez-vous</a></h4>
-            <form action="/enregistrement" method="post" class="mt-4">
+            <h4 class="text-center text-color fs-5">ou <a href="{{ url('/connexion') }}">connectez-vous</a></h4>
+            <form action="{{ url('/enregistrement') }}" method="post" class="mt-4">
                 @csrf
 
                 <div class="w-75 m-auto">
